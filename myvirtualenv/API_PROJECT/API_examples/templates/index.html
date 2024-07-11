@@ -1,0 +1,25 @@
+<!DOCKTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>API Example</title>
+    </head>
+    <body>
+        <h1>GitHub API</h1>
+        <div id="data"></div>
+        <form method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            {% csrf_token %}
+            <input type="submit" value="Get GitHub Info">
+        </form>
+
+        {% if user %}
+        {{ user }}
+        {% comment %} <p>Username: {{ user.login }}</p>
+        <p>URL: {{ user.html_url }}</p>
+        <p>Repos: {{ user.public_repos }}</p> {% endcomment %}
+        
+        {% endif%}
+    </body>
+</html>

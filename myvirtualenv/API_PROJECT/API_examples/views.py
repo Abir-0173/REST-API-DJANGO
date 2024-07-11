@@ -1,0 +1,17 @@
+from django.shortcuts import render
+import requests
+
+# Create your views here.
+
+def index(request):
+    user = False
+    if request.method == 'POST':
+        username = request.POST.get('usernames')
+        # url = 'https://api.github.com/users/' + str(username)
+        url = 'https://api.github.com/users/%s' % username
+        # url = 'https://icon.horse/icon/%s' % username
+        response = requests.get(url)
+        user = response.json()
+    return render(request, 'index.html', context={'user': user})
+
+

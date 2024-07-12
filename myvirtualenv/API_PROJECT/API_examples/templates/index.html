@@ -9,16 +9,17 @@
         <div id="data"></div>
         <form method="POST">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" name="username" value="" required>
             {% csrf_token %}
             <input type="submit" value="Get GitHub Info">
         </form>
 
         {% if user %}
         {{ user }}
-        {% comment %} <p>Username: {{ user.login }}</p>
+        <p>Username: {{ user.login }}</p>
         <p>URL: {{ user.html_url }}</p>
-        <p>Repos: {{ user.public_repos }}</p> {% endcomment %}
+        <p>Repos: {{ user.public_repos }}</p>
+        <img src="{{ user.avatar_url }}" style="width:300px;">
         
         {% endif%}
     </body>

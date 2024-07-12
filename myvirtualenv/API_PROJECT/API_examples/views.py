@@ -6,7 +6,7 @@ import requests
 def index(request):
     user = False
     if request.method == 'POST':
-        username = request.POST.get('usernames')
+        username = request.POST.get('username')
         # url = 'https://api.github.com/users/' + str(username)
         url = 'https://api.github.com/users/%s' % username
         # url = 'https://icon.horse/icon/%s' % username

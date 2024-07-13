@@ -16,6 +16,7 @@
 
         {% if user %}
         {{ user }}
+        <h2>Name: {{ user.name }}</h2>
         <p>Username: {{ user.login }}</p>
         <p>URL: {{ user.html_url }}</p>
         <p>Repos: {{ user.public_repos }}</p>
